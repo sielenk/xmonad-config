@@ -8,11 +8,19 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
 
+layout = Mirror tiled ||| tiled ||| Full
+  where
+     tiled   = Tall nmaster delta ratio
+     nmaster = 1
+     ratio   = 3/4
+     delta   = 3/100
+
+
 conf = ewmh $ defaultConfig {
     terminal = "urxvtc",
     modMask = mod4Mask,
     manageHook = manageDocks <+> manageHook defaultConfig,
-    layoutHook = avoidStruts  $  layoutHook defaultConfig,
+    layoutHook = avoidStruts  $  layout,
     handleEventHook = docksEventHook <+> handleEventHook defaultConfig
   }
 
