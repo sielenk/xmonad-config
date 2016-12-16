@@ -8,9 +8,8 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
 
-layout = Mirror (Tall nmaster mratio delta) ||| Tall nmaster ratio delta ||| Full
+layout = Mirror (Tall nmaster delta mratio) ||| Tall nmaster delta ratio ||| Full
   where
-     tiled   = Tall nmaster delta ratio
      nmaster = 1
      mratio  = 3/4
      ratio   = 1/2
